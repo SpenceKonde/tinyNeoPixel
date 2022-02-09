@@ -1,5 +1,5 @@
 ## tinyNeoPixel - a  library for WS2812 "NeoPixel" and similar at full range of supported clock speeds
-With support for classic AVR and modern AVR parts
+With support for classic AVR and modern AVR parts - this will be used as the repo from which the version packaged with my three cores is pulled. 
 
 Outputting data to WS2812 and compatible LEDs requires carefully tuned assembly to get correct output. This means a separate implementation must be provided for several ranges of clock speeds to support the full range of clock speeds that ATTinyCore supports; the readily available WS2812 libraries do not support this. These included libraries support all speeds that ATTinyCore does from 7.3728MHz and up. It is not possible to drive neopixels at speeds much below that: 8 MHz has only 10 clock cycles per bit if we are aspiring to meet the standards that this library always has. If the no-dead-time requirement is relaxed, and you were willing to drag a menu option or port-specific code back in, it could be done potentially slightly at as low as 4 MHz but then you will be worrying about the pixels latching between bytes. 2812-alikes latch within just 6-7 us, not the 50 us that the datasheet claims - though some that require 250 us (!!) exist. It is difficult to know which ones you have without careful testing.
 
